@@ -1,4 +1,4 @@
-const server = require('../server.js')
-
 //IMPORT ROUTES
-require('./products')(server)
+module.exports = (server) => {
+    require('./products')(server)
+}
