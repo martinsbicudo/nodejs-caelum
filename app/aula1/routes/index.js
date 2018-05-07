@@ -1,4 +1,4 @@
 //IMPORT ROUTES
-module.exports = (server) => {
-    require('./products')(server)
+module.exports = (server, DB) => {
+    require('./products')(server, DB)
 }
