@@ -1,7 +1,8 @@
-const http = require('http')
-    , server = http.createServer((req, res) => {
-        req.url === '/' ? res.end('index') : null
-        req.url === '/home' ? res.end('home') : null
-    })
+const express = require('express')
+    , server = express()
+
+server.get('/', (req, res) => {
+    return res.end('index')
+})
 
 server.listen(3000)
