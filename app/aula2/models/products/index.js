@@ -1,10 +1,12 @@
 const connection = require('../../db')
     , get = require('./get')
+    , add = require('./add')
 
 module.exports = () => {
-    const connectionPromise = connection()
+    const Connection = connection()
 
     return {
-        get: () => get(connectionPromise)
+        get: () => get(Connection),
+        add: book => add(Connection, book)
     }
 }

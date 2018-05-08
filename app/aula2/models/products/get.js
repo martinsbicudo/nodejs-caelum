@@ -1,7 +1,9 @@
-module.exports = connectionPromise =>
+module.exports = Connection =>
     new Promise((resolve, reject) => {
-        connectionPromise
+        Connection
             .then(DB =>
-                DB.query('SELECT * FROM livros', (e, books) => e ? reject(e) : resolve(books))
+                DB.query('SELECT * FROM livros', (e, books) => 
+                    e ? reject(e) : resolve(books)
+                )
             )
     })

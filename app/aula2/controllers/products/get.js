@@ -1,4 +1,5 @@
-const { get } = require('../../models/products/')()
+const products = require('../../models/products/')
+    , { get } = products()
 
 //GETTING PRODUCTS LIST
 module.exports = (req, res) => 
@@ -9,6 +10,4 @@ module.exports = (req, res) =>
                 livros: books
             })
         )
-        .catch(erro =>
-            res.render('erros/500', { erro })
-        )
+        .catch(erro => res.render('erros/500', { erro }))
