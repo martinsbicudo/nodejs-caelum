@@ -12,5 +12,5 @@
       "app/**/*.js",
       "index.js"
     ],
-    "ext": "js, json"
+    "ext": "js, json, ejs"
 }

@@ -4,6 +4,7 @@ const express = require('express')
 
 //CHANGE DEFAULT VIEWS FOLDER
 server.set('views', path.join(__dirname, '/views'))
+server.set('view engine', 'ejs')
 
 //CALLBACK STATIC FILES
 server.use(express.static(

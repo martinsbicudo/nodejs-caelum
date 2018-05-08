@@ -1,12 +1,14 @@
-const getBooks = require('../../models/products')
+const { get } = require('../../models/products/')
 
 //GETTING PRODUCTS LIST
 module.exports = (req, res) => 
-    getBooks()
+    get()
         .then(books => 
-            res.render('produtos/lista.ejs', {
+            res.render('produtos/lista', {
                 msgErro: '',
                 livros: books
             })
         )
-        .catch(e => console.log(e))
+        .catch(erro =>
+            res.render('erros/500', { erro })
+        )
