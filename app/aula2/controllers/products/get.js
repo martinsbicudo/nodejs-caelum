@@ -1,4 +1,4 @@
-const { get } = require('../../models/products/')
+const { get } = require('../../models/products/')()
 
 //GETTING PRODUCTS LIST
 module.exports = (req, res) => 

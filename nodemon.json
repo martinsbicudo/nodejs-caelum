@@ -4,13 +4,11 @@
       ".git",
       "node_modules/**/node_modules"
     ],
-    "verbose": true,
-    "execMap": {
-      "js": "node --harmony"
-    },
     "watch": [
       "app/**/*.js",
-      "index.js"
+      "app/**/*.ejs",
+      "index.js",
+      ".env"
     ],
     "ext": "js, json, ejs"
 }

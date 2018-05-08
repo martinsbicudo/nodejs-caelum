@@ -10,6 +10,10 @@ const mysql = require('mysql')
         host: process.env.DB_HOST,
         port: process.env.DB_PORT
     }
+    , pool = mysql.createPool(config)
 
 //EXPORT
-module.exports = mysql.createPool(config)
+module.exports = () => 
+    new Promise(resolve => {
+        pool.getConnection((e, connection) => resolve(connection))
+    })
