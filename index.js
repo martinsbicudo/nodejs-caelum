@@ -2,12 +2,10 @@
 require('dotenv').config()
 
 //SERVER
-const server = require(`./app/aula${process.env.AULA}/server.js`)
-    , DB = require(`./app/aula${process.env.AULA}/db/conection.js`)
-    
+const server = require(`./app/aula${process.env.AULA}/server`)  
 
 //ALL ROUTES
-require(`./app/aula${process.env.AULA}/routes/index.js`)(server, DB)
+require(`./app/aula${process.env.AULA}/routes/index`)(server)
 
 //START SERVER
 server.listen(3000)
