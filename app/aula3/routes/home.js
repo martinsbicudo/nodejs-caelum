@@ -1,6 +1,14 @@
 const { get } = require('../controllers/home/index')
 
-module.exports = server => {
-    server.get('/', get)
-    server.get('/home', get)
-}
+module.exports = [
+    {
+        method: 'get',
+        route: '/',
+        action: get
+    },
+    {
+        method: 'get',
+        route: '/home',
+        action: get
+    }
+]
