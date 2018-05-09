@@ -2,12 +2,15 @@ const products = require('../../models/products/')
     , { get } = products()
 
 //GETTING PRODUCTS LIST
-module.exports = (req, res) => 
+module.exports = (req, res, next) => 
     get()
         .then(books => 
-            res.render('produtos/lista', {
-                msgErro: '',
-                livros: books
+            res.format({
+                html: () => res.render('produtos/lista', {
+                    msgErro: '',
+                    livros: books
+                }),
+                json: () => res.send(books)
             })
         )
-        .catch(erro => res.render('erros/500', { erro }))
+        .catch(next)

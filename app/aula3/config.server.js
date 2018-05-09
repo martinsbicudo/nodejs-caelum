@@ -1,4 +1,5 @@
 const queryString = require('query-string')
+    , validations = require('./validations/')
 
 //CONFIG FUNCTIONS TO SERVER
 module.exports = server => ({
@@ -7,7 +8,12 @@ module.exports = server => ({
 
         req.on('data', data => (Data += data))
         req.on('end', () => {
-            req.body = queryString.parse(Data)
+            if (req.headers['content-type'] == 'application/json')
+                Data = JSON.parse(Data)
+            else
+                Data = queryString.parse(Data)            
+
+            req.body = Data
             next()
         })
     },

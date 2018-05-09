@@ -14,6 +14,8 @@ const mysql = require('mysql')
 
 //EXPORT
 module.exports = () => 
-    new Promise(resolve => {
-        pool.getConnection((e, connection) => resolve(connection))
-    })
+    new Promise((resolve, reject) =>
+        pool.getConnection((e, connection) => 
+            e ? reject(e) : resolve(connection)
+        )
+    )
