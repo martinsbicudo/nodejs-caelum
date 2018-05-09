@@ -6,6 +6,10 @@
 <script src="/socket.io/socket.io.js"></script>
 <script>
     let socket = io()
+
+    socket.on('promotion', (result) => {
+        alert(result.msg)
+    })
 </script>
 </body>
 </html>

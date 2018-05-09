@@ -2,7 +2,7 @@
 require('dotenv').config()
 
 const supertest = require('supertest')
-    , servidor = require(`../../app/aula${process.env.AULA}/server`)
+    , servidor = require(`../../app/aula${process.env.AULA || 1}/server`)
     , request = supertest(servidor)
 
 describe('Products Controller', done => {

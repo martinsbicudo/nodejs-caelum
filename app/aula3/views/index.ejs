@@ -2,13 +2,4 @@
 
 <h1>Home</h1>
 
-<script src="/socket.io/socket.io.js"></script>
-<script>
-let socket = io()
-
-socket.on('novaPromocao', (result) => {
-  alert(result.mensagem)
-})
-</script>
-
 <% include ./includes/footer.ejs %>

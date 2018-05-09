@@ -6,5 +6,8 @@ module.exports = http => {
         console.log('Socket Connected :)')
 
         socket.on('disconnect', () => console.log('Socket Disconnected :('))
+
+        //TEST SOCKET
+        socket.emit('promotion', { msg: 'Nova Promoção o//' })
     })
 }
