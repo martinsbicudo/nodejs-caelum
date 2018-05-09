@@ -27,7 +27,7 @@ server.use(validations)
 require(path.join(__dirname, '/routes/'))(server)
 
 //404 ERROR
-server.use((req, res) => res.render('erros/500', { erro: '404 NOT FOUND' }))
+server.use((req, res) => res.status(404).render('erros/500', { erro: '404 NOT FOUND' }))
 
 //REQUEST ERROR USING CONTROLLERS NEXT
 server.use((erro, req, res, next) => {
