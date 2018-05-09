@@ -3,10 +3,20 @@ const { get, form, body, add } = require('../controllers/products/index')
 //CALLBACK REQUESTS
 module.exports = server => {
     server
-        .get('/produtos', get)
-        .get('/produtos/form', form)
-
-    server
-        //.use(body)
-        .post('/produtos', add)
+        .createRoute({
+            method: 'get',
+            route: '/produtos',
+            action: get
+        })
+        .createRoute({
+            method: 'get',
+            route: '/produtos/form',
+            action: form
+        })
+        .createRoute({
+            method: 'post',
+            route: '/produtos',
+            action: add,
+            body: true
+        })
 }
