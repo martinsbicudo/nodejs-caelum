@@ -1,10 +1,13 @@
 const products = require('./products')
 
 //GET ALL VALIDATIONS
-module.exports = (req, name) => {
+module.exports = (req, res, next) => {
     const validations = {
-        products: products(req)
+        products
     }
     
-    return validations[name]
+    //REGISTER REQ GLOBAL FUNCTION
+    req.validations = name => validations[name](req)
+
+    next()
 }

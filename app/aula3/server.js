@@ -2,6 +2,7 @@ const config = require('./config.server')
     , express = require('express')
     , path = require('path')
     , validator = require('express-validator')
+    , validations = require('./validations/')
     
 let server = express()
 
@@ -17,6 +18,7 @@ server.use(express.static(path.join(__dirname, '/public')))
 
 //VALIDATION
 server.use(validator())
+server.use(validations)
 
 //CREATING BODY DATA FOR ALL REQUESTS
 //server.use(express.urlencoded())
